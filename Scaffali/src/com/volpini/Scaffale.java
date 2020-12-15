@@ -36,11 +36,15 @@ public class Scaffale {
         return NUM_RIPIANI * Mensola.getNumMaxVolumi();
     }
 
-    public long getNumLibri() {
-        return
+    public int getNumLibri() {
+        int conta=0;
+        for(int i = 0; i < NUM_RIPIANI; i++){
+           conta+=ripiani.get(i).getNumVolumi();
+        }
+        return conta;
     }
 
-    public long getNumLibri(int ripiano) {
+    public int getNumLibri(int ripiano) {
         return ripiani.get(ripiano).getNumVolumi();
     }
 

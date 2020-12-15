@@ -35,6 +35,15 @@ public class Mensola {
         return NUM_MAX_VOLUMI;
     }
 
+    public int getNumVolumi(){
+        int conta=0;
+        for(int i = 0; i < NUM_MAX_VOLUMI; i++){
+            if(volumi.get(i)!=null){
+                conta++;
+            }
+        }
+        return conta;
+    }
 
 
     @Override
