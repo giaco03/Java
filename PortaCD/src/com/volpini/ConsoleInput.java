@@ -12,6 +12,7 @@ public class ConsoleInput {
 
 
     public static int readInt(String prompt)  {
+        System.out.println(prompt);
         try{
             return Integer.parseInt(reader.readLine());
 
