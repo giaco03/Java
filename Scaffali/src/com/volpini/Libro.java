@@ -53,6 +53,7 @@ package com.volpini;
                     "titolo='" + titolo + '\'' +
                     ", autore='" + autore + '\'' +
                     ", numeroPagine=" + numeroPagine +
+                    ", prezzo="+prezzo()+
                     '}';
         }
     }
