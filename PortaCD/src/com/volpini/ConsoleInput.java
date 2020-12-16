@@ -47,15 +47,5 @@ public class ConsoleInput {
            return readline(prompt);
        }
     }
-    public String msg(String s){
-        System.out.println(s);
-        try{
-            return reader.readLine();
 
-        }
-        catch (IOException exception){
-            System.out.println("Stringa non valida");
-            return msg(s);
-        }
-    }
 }

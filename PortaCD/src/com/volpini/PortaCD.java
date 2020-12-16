@@ -1,12 +1,13 @@
 package com.volpini;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class PortaCD {
 
     private int n;
     private CD[] cd;
-    private int counter;
+
     public PortaCD(int n) {
         this.n = n;
         cd = new CD[n];
@@ -14,59 +15,55 @@ public class PortaCD {
     }
 
     public CD getCd(int counter) {
-       if(counter < 0 || counter >= n ){
-
-       }
-       return cd[counter];
+        if (counter < 0 || counter >= n) {
+            return null;
+        }
+        return cd[counter];
     }
 
-    public  boolean setCd(int counter, CD c) {
-        if(counter < 0 || counter >= n ){
+    public boolean setCd(int counter, CD c) {
+        if (counter < 0 || counter >= n) {
             return false;
         }
         cd[counter] = c;
         return true;
     }
-    public boolean killCD(int counter){
-        if(counter < 0 || counter >= n ){
+
+    public boolean killCd(int counter) {
+        if (counter < 0 || counter >= n) {
             return false;
         }
         cd[counter] = null;
-        return  true;
+        return true;
 
     }
-    public int getN( ){
+
+    public int getN() {
         return n;
-
-
     }
-    public int cercaCDPerTitolo(String s) {
-        int i=0,app=0;
-        while(i<cd.length){
-            if(cd[i].getTitolo().equals(s)){
-                return i;
-            }
-            i++;
 
+    public int cercaCDPerTitolo(String s) {
+
+        for(int i = 0; i < n; i++){
+            if(cd[i] != null) {
+                if (cd[i].getTitolo().equals(s)) return i;
+            }
         }
         return -1;
     }
 
-    public int confrontaCollezione(PortaCD c){
-        int common=0,min;
-        if(n > c.getN()){
-            min = c.getN();
-        }
-        else{
-            min = n;
-        }
-        for(int i = 0; i < min; i++){
-            if(cd[i].equals(c.getCd(i))){
-                common++;
+    public int confrontaCollezione(PortaCD c) {
+        int common = 0;
+
+        for (int i = 0; i < this.n; i++) {
+            for(int j = 0; j < c.getN(); j++) {
+                if (this.cd[i] != null && c.cd[j] != null) {
+                    if (this.cd[i].uguale(c.cd[j])) common++;
+                }
             }
         }
         return common;
-  }
+    }
 
 
     @Override
@@ -74,10 +71,10 @@ public class PortaCD {
         return "PortaCD{" +
                 "n=" + n +
                 ", cd=" + Arrays.toString(cd) +
-                ", counter=" + counter +
                 '}';
     }
-    public String Stampa(int i){
-        return i+")"+cd[i];
-    }
+
+
+
+
 }

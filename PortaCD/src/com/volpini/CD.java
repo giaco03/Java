@@ -13,7 +13,7 @@ public class CD {
     }
 
     public String getTitolo() {
-        return this.titolo;
+        return titolo;
     }
 
     public void setTitolo(String titolo) {
@@ -21,7 +21,7 @@ public class CD {
     }
 
     public String getAutore() {
-        return this.autore;
+        return autore;
     }
 
     public void setAutore(String autore) {
@@ -29,7 +29,7 @@ public class CD {
     }
 
     public int getNumeroBrani() {
-        return this.numeroBrani;
+        return numeroBrani;
     }
 
     public void setNumeroBrani(int numeroBrani) {
@@ -37,7 +37,7 @@ public class CD {
     }
 
     public double getDurata() {
-        return this.durata;
+        return durata;
     }
 
     public void setDurata(double durata) {
@@ -48,7 +48,20 @@ public class CD {
         return album.durata - this.durata;
     }
 
+    @Override
     public String toString() {
-        return "CD{titolo='" + this.titolo + "', autore='" + this.autore + "', numeroBrani=" + this.numeroBrani + ", durata=" + this.durata + "}";
+        return "CD{" +
+                "titolo='" + titolo + '\'' +
+                ", autore='" + autore + '\'' +
+                ", numeroBrani=" + numeroBrani +
+                ", durata=" + durata +
+                '}';
+    }
+    public boolean uguale(CD c){
+        if(c != null && getTitolo().equals(c.titolo) && getAutore().equals(c.autore)){
+            return true;
+        }
+        else return false;
+
     }
 }
