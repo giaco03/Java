@@ -18,6 +18,16 @@ public class Menu {
                     Libro l = new Libro(ConsoleInput.readline("Inserisci il titolo:"), ConsoleInput.readline("Inserisci l'autore:"), ConsoleInput.readInt("Inserisci il numero di pagine"));
                     r = ConsoleInput.readInt("In quale ripiano vuoi inserirlo?");
                     p = ConsoleInput.readInt("Inserisci la posizione nel ripiano");
+                    while(scaffale.getLibro(r,p) != null ){
+                        if(p < Mensola.getNumMaxVolumi()){
+                            scaffale.setLibro(l, r, p);
+                            p++;
+                        }
+                        if( p == Mensola.getNumMaxVolumi()){
+                            r++;
+                            p=0;
+                        }
+                     }
                     scaffale.setLibro(l, r, p);
                     break;
                 case 2:
@@ -35,6 +45,8 @@ public class Menu {
                             }
                         }
                     }
+                    break;
+                default:
                     break;
 
             }
