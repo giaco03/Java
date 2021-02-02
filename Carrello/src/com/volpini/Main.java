@@ -43,7 +43,7 @@ public class Main {
 
     //In base alla stringa inserita dall'utente alloca un diverso tipo di oggetto
     public static Merce selezione(String s) {
-        String[] array = new String[]{"Abbigliamento", "Freschi", "Conservati"};
+        String[] array = new String[]{"Abbigliamento\t", "Freschi\t", "Conservati\t"};
         while (true) {
             s = ConsoleInput.readline("Inserisci il nome del tipo del prodotto -> ");
             switch (s) {
