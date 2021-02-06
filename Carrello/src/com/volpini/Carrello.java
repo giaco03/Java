@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Carrello {
     private static int MAX_OGGETTI = 15;
-    private final List<Merce> contenutoCarrello;
+    private List<Merce> contenutoCarrello;
 
     public Carrello() {
         contenutoCarrello = new ArrayList<>(MAX_OGGETTI);
