@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        int s=6;
+        int s=6,g=200;
         double a,b,c;
         do {
             s = ConsoleInput.readInt("\n1)Risolvi equazione\n2)Genera equazione\n3)Formula generale\n0)Esci\nInserisci la scelta -> ");
@@ -24,9 +24,9 @@ public class Main {
                     }
                     break;
                 case 2:
-                    a = ran();
-                    b = ran();
-                    c = ran();
+                    a = ran(g);
+                    b = ran(g);
+                    c = ran(g);
                     try {
                     System.out.println("Eq ->[" + a + " x^2 + " + b + " x + " + c + "]");
                     System.out.println("x1,2" + Operazione.Eq(a, b, c));
@@ -38,15 +38,17 @@ public class Main {
                     System.out.println("∆ = (b)^2 - 4* (a*c)");
                     System.out.println("x1,2 = (-b +- √∆) / 2*a");
                     break;
+                case 0:
+                    break;
                 default:
                     System.out.println("Valore non corretto.\nReinserire\n");
             }
         }while (s!=0);
     }
 
-    public static double ran(){
+    public static double ran(int a){
         Random r = new Random();
-        return r.nextInt(200) / 10.0;
+        return r.nextInt(a) / 10.0;
     }
 
 }

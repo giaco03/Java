@@ -10,7 +10,8 @@ public class Operazione {
             throw new IndetermExcp();
         }
         if(a==0) throw new EqImpossibile();
-        return (-b/a);
+        if(b==0) return 0;
+        return -b/a;
     }
 
     public static List<Double> Eq(double a, double b, double c){
