@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Treno implements Serializable {
-    private static double MAX_TRENI=100;
+
     private List<Vagone> treno;
 
 
@@ -14,11 +14,10 @@ public class Treno implements Serializable {
     }
     public void aggiungiVagone(Vagone v){
        treno.add(v);
-
     }
     public boolean eliminaVagone(int n) {
         n -= 1;
-        if (n >= 0 && n < MAX_TRENI && n <= treno.size()) {
+        if (n >= 0 && n < 100 && n <= treno.size()) {
             treno.remove(n);
             return true;
         }
@@ -35,13 +34,6 @@ public class Treno implements Serializable {
         return false;
     }
 
-    public static double getMaxTreni() {
-        return MAX_TRENI;
-    }
-
-    public static void setMaxTreni(double maxTreni) {
-        MAX_TRENI = maxTreni;
-    }
     public double pesoTreno(){
         double c=0;
         for(Vagone element : treno){
@@ -59,5 +51,14 @@ public class Treno implements Serializable {
             }
         }
     }
-
+    public void ricercaAzienda(String s){
+        int counter = 1;
+        for(Vagone element : treno){
+            if(element.getAziendaC().equals(s)){
+                System.out.println("\n"  + counter + ")" +element.getClass().getSimpleName()
+                        + element.toString() + "\n");
+                counter++;
+            }
+        }
+    }
 }

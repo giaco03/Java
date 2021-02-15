@@ -17,7 +17,6 @@ public class FileBinario implements FileInterface{
         if (!file.getName().endsWith(".bin")) throw new ExtensionExcp(file,".bin");
         try (ObjectInputStream reader = new ObjectInputStream(new FileInputStream(file))) {
             Object o = reader.readObject();
-
             if (target.isInstance(o)) return (T) o;
             return null;
         } catch (FileNotFoundException e) {
