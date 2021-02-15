@@ -1,27 +1,36 @@
 package com.volpini;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Treno {
+public class Treno implements Serializable {
     private static double MAX_TRENI=100;
     private List<Vagone> treno;
 
 
     public Treno() {
         treno = new ArrayList<>();
-
     }
-    public void aggiungiTreno(Vagone v){
+    public void aggiungiVagone(Vagone v){
        treno.add(v);
 
     }
-    public boolean eliminaTreno(int n) {
+    public boolean eliminaVagone(int n) {
         n -= 1;
         if (n >= 0 && n < MAX_TRENI && n <= treno.size()) {
-
             treno.remove(n);
             return true;
+        }
+        return false;
+    }
+
+    public boolean eliminaVagone(String s) {
+        for (Vagone element : treno) {
+            if (element.getCodice().equals(s)) {
+                treno.remove(element);
+                return true;
+            }
         }
         return false;
     }

@@ -1,6 +1,8 @@
 package com.volpini;
 
-public class Vagone {
+import java.io.Serializable;
+
+public class Vagone implements Serializable {
     private String codice;
     private double pesoV;
     private String aziendaC;

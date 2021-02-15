@@ -1,4 +1,5 @@
 package com.volpini;
+import java.io.Serializable;
 
 public class VagonePasseggero extends Vagone{
     private String classe;

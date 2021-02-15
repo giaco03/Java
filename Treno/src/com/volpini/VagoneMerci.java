@@ -1,4 +1,5 @@
 package com.volpini;
+import java.io.Serializable;
 
 public class VagoneMerci extends Vagone{
     private String volume;
