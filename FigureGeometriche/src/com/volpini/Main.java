@@ -1,5 +1,5 @@
 package com.volpini;
-
+//todo ricordarsi del casting leggere polimofismo
 import java.util.ArrayList;
 import java.util.List;
 

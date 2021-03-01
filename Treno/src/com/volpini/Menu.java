@@ -4,8 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 public class Menu {
-    private static final File dataFile = new File("./treno.bin");
-    private static final FileInterface fileInterface = new FileBinario();
+
 
 
     public Menu() {
@@ -13,7 +12,8 @@ public class Menu {
     }
 
     public void program() {
-        Treno train = loading();
+        Treno train = new Treno();
+        train = (Treno) train.loaded();
         int scelta = 1;
         while (scelta != 0) {
             scelta = ConsoleInput.readInt("\n1)Aggiungi un vagone al treno\n" +
@@ -54,7 +54,7 @@ public class Menu {
                     break;
                 case 0:
                     scelta = 0;
-                    saving(train);
+                    train.save();
                     break;
                 default:
                     break;
@@ -86,6 +86,7 @@ public class Menu {
             }
         }
     }
+    /*
     public static Treno loading() {
         Treno treno = null;
         try {
@@ -102,4 +103,6 @@ public class Menu {
         fileInterface.save(o, dataFile);
         System.out.println("Arrivederci");
     }
+    */
+
 }
