@@ -38,6 +38,7 @@ public class Aerodromo implements Serializable,Savable {
 
             if(lista.get(i).getsigla().equals(sigla2)) index2 = i;
         }
+        if(index1  == -1 || index2 == -1) System.out.println("L'elemento non è stato trovato");
         try {
             System.out.println("La differenza fra i due è ->"+lista.get(index1).compareTo(lista.get(index2)));
         } catch (ClassCastException | NullPointerException e){
