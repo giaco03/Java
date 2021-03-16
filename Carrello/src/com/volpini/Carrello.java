@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Carrello {
     private static int MAX_OGGETTI = 15;
-    private final List<Merce> contenutoCarrello;
+    private List<Merce> contenutoCarrello;
 
     public Carrello() {
         contenutoCarrello = new ArrayList<>(MAX_OGGETTI);
@@ -21,6 +21,7 @@ public class Carrello {
             contenutoCarrello.remove(n);
             return true;
         }
+        System.out.println("Il prodotto non è stato trovato");
         return false;
     }
 
@@ -32,6 +33,7 @@ public class Carrello {
                 return true;
             }
         }
+        System.out.println("Il prodotto non è stato trovato");
         return false;
     }
 
@@ -68,7 +70,7 @@ public class Carrello {
         for (Merce element : contenutoCarrello) {
             i++;
             if (element != null) {
-                System.out.println("\n" + i + ")" + element.toString() + "\n");
+                System.out.println("\n" + i + ")" +element.getClass().getSimpleName()+ element.toString() + "\n");
             }
         }
     }
