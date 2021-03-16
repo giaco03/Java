@@ -5,7 +5,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 public interface Savable {
-    static final File dataFile = new File("./treno.bin");
+    static final File dataFile = new File("./storage.bin");
 
     default void sasso(Object object, File file) throws ExtensionExcp {
         if (!file.getName().endsWith(".bin")) throw new ExtensionExcp(file, ".bin");
