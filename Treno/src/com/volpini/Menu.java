@@ -12,8 +12,8 @@ public class Menu {
     }
 
     public void program() {
-        //Treno train = new Treno();
-        Treno train = (Treno) train.loaded();
+        Treno train = new Treno();
+        train = (Treno) train.loaded();
         int scelta = 1;
         while (scelta != 0) {
             scelta = ConsoleInput.readInt("\n1)Aggiungi un vagone al treno\n" +
