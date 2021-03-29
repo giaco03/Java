@@ -1,0 +1,1 @@
+[Studente{name='Prova array', surname='Prova cognome', age=100}]

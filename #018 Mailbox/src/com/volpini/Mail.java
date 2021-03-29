@@ -11,11 +11,11 @@ public class Mail implements Serializable {
     private String testo;
     private Date orario;
 
-    public Mail(String mittente, String oggetto, String testo, Date orario) {
+    public Mail(String mittente, String oggetto, String testo) {
         this.mittente = mittente;
         this.oggetto = oggetto;
         this.testo = testo;
-        this.orario = orario;
+        orario = new java.util.Date();
     }
 
     public String getMittente() {

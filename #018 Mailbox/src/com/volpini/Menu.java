@@ -62,10 +62,10 @@ public class Menu {
 
     }
 
-    //In base alla stringa inserita dall'utente alloca un diverso tipo di oggetto
+   //crea una mail
     public static Mail selezione() {
         return new Mail(ConsoleInput.readline("Mittente -> "),ConsoleInput.readline("Oggetto dell'email\n -> "),
-                ConsoleInput.readline("Testo dell'email -> "),new java.util.Date());
+                ConsoleInput.readline("Testo dell'email -> "));
 
     }
     public static int apri(){
