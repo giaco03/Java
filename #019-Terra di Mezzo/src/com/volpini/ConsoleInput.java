@@ -17,23 +17,24 @@ public class ConsoleInput {
              return Integer.parseInt(reader.readLine());
 
         } catch (IOException | NumberFormatException exception) {
-            System.out.print("Valore non corretto");
+            System.out.println("Valore non corretto");
             return readInt(prompt);
         }
     }
     public static int readIntP(String prompt) {
         System.out.print(prompt);
         try {
-             if(Integer.parseInt(reader.readLine()) > 0){
-                return Integer.parseInt(reader.readLine());
+            int i = Integer.parseInt(reader.readLine());
+             if(i > 0){
+                return i;
              }
              else{
-                System.out.print("Il valore deve essere positivo");
+                System.out.print("Il valore deve essere positivo.\n");
                 return readIntP(prompt);
              }
 
         } catch (IOException | NumberFormatException exception) {
-            System.out.print("Valore non corretto");
+            System.out.println("Valore non corretto");
             return readInt(prompt);
         }
     }
@@ -98,8 +99,21 @@ public class ConsoleInput {
 
     public static char readChar(String prompt) {
         System.out.print(prompt);
-        return ginga.next().charAt(0);
+       return ginga.next().toUpperCase().charAt(0);
 
+    }
+    public static void slowPrint(String s,int milliseconds)  {
+        try {
+            for (int i = 0; i < s.length(); i++) {
+                System.out.print(s.charAt(i));
+                Thread.sleep(100);
+            }
+            Thread.sleep(milliseconds);
+            System.out.println();
+        }
+        catch (InterruptedException i){
+            i.printStackTrace();
+        }
     }
 
 

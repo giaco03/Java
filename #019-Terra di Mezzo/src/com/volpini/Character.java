@@ -9,6 +9,7 @@ public class Character extends Warrior {
     public Character(boolean a, int exp, String race) {
         super(a, exp);
         this.race = race;
+        if(race.equals("Ent") || race.equals("Goblin")) addExp(2);
         force = getForce();
     }
 
@@ -20,26 +21,47 @@ public class Character extends Warrior {
     public int getForce(){
         switch (getRace()){
             case "Uomini":
-                return 30+(6*getExp());
+                force = (int) (30+(Math.pow(2,getExp()) / 5));
+                break;
             case "Elfi":
-                if(getExp() < 5) return 20+(3*getExp());
-                else return 80+(2*getExp());
+                if(getExp() <= 5) force = 20+(5*getExp());
+                else force = 80+(getExp()*getExp());
+                break;
             case "Nani":
-                return 20+(4*getExp());
+                force = 20+(4*getExp()*2);
+                break;
             case "Hobbit":
-                return 10+(3*getExp());
+                force = 30+(3*getExp());
+                break;
+            case "Ent":
+                force = 40 + (getExp()*4);
+                break;
             case "Orchi":
-                if(getExp() < 5) return 30+(2*getExp());
-                else return 70+(3*getExp());
+                if(getExp() <= 5) force = 40+(2*getExp()+getExp());
+                else force = (int) (70+((Math.pow(Math.E,getExp()))/Math.pow(getExp(),2)*2));
+                break;
             case "Urukhai":
-                return 50+(5*getExp());
+                force = (int) Math.pow(getExp(),(Math.abs(getExp()-7)));
+                break;
             case "Sudroni":
-                return 40+(5*getExp());
-            default:
-                return 1;
+                force = 40+(5*getExp());
+                break;
+            case "Goblin":
+                force = 30 + (2*getExp());
+                break;
+
+            case "Troll":
+                force = 100 + (3*getExp());
+                break;
         }
+        return force;
+    }
+    @Override
+    public void updateForce(){
+        this.force = getForce();
     }
 
+    @Override
     public void setForce(int force) {
         this.force = force;
     }
@@ -50,5 +72,25 @@ public class Character extends Warrior {
                 super.toString()+
                 "force -> " + force +
                 "\n}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Character)) return false;
+        if (!super.equals(o)) return false;
+
+        Character character = (Character) o;
+
+        if (getForce() != character.getForce()) return false;
+        return getRace().equals(character.getRace());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + getRace().hashCode();
+        result = 31 * result + getForce();
+        return result;
     }
 }
