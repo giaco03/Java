@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="432.0" prefWidth="645.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Model.Partita">
+   <children>
+      <HBox layoutX="4.0" layoutY="299.0" prefHeight="126.0" prefWidth="638.0" spacing="20.0">
+         <children>
+            <ImageView fx:id="card1" fitHeight="150.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="card2" fitHeight="150.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="card3" fitHeight="150.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+      <Label fx:id="turn" layoutX="33.0" layoutY="225.0" prefHeight="17.0" prefWidth="43.0" text="Turn " />
+      <ImageView fx:id="deck" fitHeight="72.0" fitWidth="101.0" layoutX="541.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true" />
+      <HBox prefHeight="100.0" prefWidth="645.0" spacing="20.0">
+         <children>
+            <ImageView fitHeight="86.0" fitWidth="69.0" layoutX="20.0" pickOnBounds="true" preserveRatio="true" x="100.0" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

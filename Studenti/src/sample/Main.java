@@ -66,8 +66,6 @@ public class Main extends Application {
         hBox.setSpacing(15);
         hBox.getChildren().addAll(nameI,surnameI,ageI,addressI,addBtn,dltBtn,mdfBtn);
 
-
-
         VBox vBox = new VBox();
         vBox.getChildren().addAll(table,hBox);
         Scene scene = new Scene(vBox);
@@ -89,7 +87,6 @@ public class Main extends Application {
         for (int i = 0; i < classe.size(); i++) {
             classroom.add(classe.getStudent(i));
         }
-
 
         return classroom;
     }
@@ -134,9 +131,7 @@ public class Main extends Application {
                 }
             }
             studentSelected.forEach(allStudents::remove);
-
         }
-
     }
 
     public static void main(String[] args) {

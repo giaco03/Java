@@ -1,6 +1,7 @@
 package com.volpini;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Character extends Warrior {
     private String race;
@@ -74,8 +75,8 @@ public class Character extends Warrior {
                 "\n}";
     }
 
-    @Override
-    public boolean equals(Object o) {
+
+   /* public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Character)) return false;
         if (!super.equals(o)) return false;
@@ -92,5 +93,20 @@ public class Character extends Warrior {
         result = 31 * result + getRace().hashCode();
         result = 31 * result + getForce();
         return result;
+    }
+    */
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Character)) return false;
+        if (!super.equals(o)) return false;
+        Character character = (Character) o;
+        return getForce() == character.getForce() && getRace().equals(character.getRace());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getRace(), getForce());
     }
 }
