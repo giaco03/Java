@@ -1,4 +1,6 @@
-package Model;
+package main.Model;
+
+import java.util.Objects;
 
 public class Personaggio {
     public String nome;
@@ -44,7 +46,6 @@ public class Personaggio {
         this.xp = xp;
     }
 
-    //metodi aggiuntivi (sfida)
 
     public int sfida (Personaggio pg2) {//ritorna + se questo pg ha vinto, - se ha perso e 0 se è un pareggio
         int ret=0;
@@ -68,10 +69,22 @@ public class Personaggio {
         return ret;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Personaggio)) return false;
+        Personaggio that = (Personaggio) o;
+        return getFx() == that.getFx() && getXp() == that.getXp() && Objects.equals(getNome(), that.getNome());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNome(), getFx(), getXp());
+    }
 
     //toString
     public String toString() {
-        return "Personaggio [nome=" + nome + ", forza=" + fx + ", esperienza=" + xp + "]";
+        return nome+"{\n"+"forza -> "+fx+"\nexp -> "+xp+"\n}";
     }
 
 }
